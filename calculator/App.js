@@ -20,8 +20,12 @@ export default function App() {
       <TextInput style={styles.input} onChangeText={number1 => setNumber1(number1)} value={number1} keyboardType="decimal-pad"/>
       <TextInput style={styles.input} onChangeText={number2 => setNumber2(number2)} value={number2} keyboardType="decimal-pad"/>
       <View style={styles.row}>
-        <Button onPress={minusPressed} style={styles.button} title="-"></Button>
-        <Button onPress={plusPressed} style={styles.button} title="+"></Button>
+        <View style={styles.button}>
+          <Button onPress={minusPressed} color="white" title="-"/>
+        </View>
+        <View style={styles.button}>
+          <Button onPress={plusPressed} color="white" title="+"/>
+        </View>
       </View>
       <StatusBar style="auto" />
     </View>
@@ -53,6 +57,8 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 5,
-    margin: 50,
+    margin: 10,
+    width: 50,
+    backgroundColor: 'blue',
   }
 });
