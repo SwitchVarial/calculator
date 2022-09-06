@@ -9,6 +9,7 @@ import {
   FlatList,
   Keyboard,
   Alert,
+  Pressable,
 } from "react-native";
 
 export default function App() {
@@ -65,12 +66,12 @@ export default function App() {
         keyboardType="decimal-pad"
       />
       <View style={styles.row}>
-        <View style={styles.button}>
-          <Button onPress={() => calculate("-")} color="white" title="-" />
-        </View>
-        <View style={styles.button}>
-          <Button onPress={() => calculate("+")} color="white" title="+" />
-        </View>
+        <Pressable style={styles.button} onPress={() => calculate("-")}>
+          <Text style={styles.buttontext}>-</Text>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => calculate("+")}>
+          <Text style={styles.buttontext}>+</Text>
+        </Pressable>
       </View>
       <Text style={styles.title}>History</Text>
       <FlatList
@@ -113,9 +114,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   button: {
-    padding: 5,
-    margin: 10,
-    width: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 4,
+    margin: 5,
     backgroundColor: "blue",
+  },
+  buttontext: {
+    fontSize: 20,
+    lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "white",
   },
 });
